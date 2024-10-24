@@ -1,0 +1,34 @@
+package prg7;
+import java.util.*;
+public class prg6 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int i,size,nop,opr,temp=0;
+		int[] datarate=new int[100];
+		System.out.println("Enter the bucket size:");
+		size=sc.nextInt();
+		System.out.println("Enter the number of packets:");
+		nop=sc.nextInt();
+		System.out.println("Enter the datarate ");
+		for(i=0;i<nop;i++)
+			datarate[i]=sc.nextInt();
+		System.out.println("Enter the output rate:");
+		opr=sc.nextInt();
+		for(i=0;i<nop;i++)
+		{
+			if(datarate[i]>size)
+				System.out.println("bucket overflow");
+			else
+			{
+				temp=datarate[i];
+				while(temp>opr)
+				{
+					System.out.println("Packet transmission"+opr);
+					temp=temp-opr;
+				}
+				System.out.println("packet transmission"+temp);
+			}
+		}
+		
+	}
+}
